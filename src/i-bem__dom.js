@@ -7,16 +7,7 @@ BEM.decl('i-bem__dom', null, {
     // вложенных в блок элементов и блоков.
     // 
     // Интерфейс заимствует у live-подписки на события в jQuery,
-    // что делает его использование интуитивно понятным:
-    // 
-    //   $('.block').on('click', 'link', function (event) {
-    //     console.log('clicked!');
-    //   });
-    //   
-    //   var block = $('.block').bem('block');
-    //   block.on(block.elem('link'), 'click', function (event) {
-    //     console.log('clicked!');
-    //   });
+    // что делает его использование интуитивно понятным.
     //   
     // Забавно, но в самом методе ничего серьёзного не происходит.
     liveBindTo : function(to, event, callback) {
@@ -123,21 +114,7 @@ BEM.decl('i-bem__dom', null, {
                 while(className = classNames[i++]) {
                     // Как можно было заметить ранее, строка классов DOM-элемента обрамлялась
                     // с обеих сторон пробелами. Искомая строка — селектор подписки — тоже обрамлён
-                    // пробелами, что позволяет отсеять частичные совпадения строк при поиске вхождения:
-                    // 
-                    //   node.className == 'foo bar baz';
-                    //   className1 = 'foo';
-                    //   className2 = 'fo';
-                    //   
-                    //   nodeClassName = ' ' + node.className + ' '; 
-                    //   /* ' foo bar baz ' */
-                    //   
-                    //   nodeClassName.indexOf(' ' + className1 + ' ') > -1) 
-                    //   /* ' foo bar baz '.indexOf(' foo ') -> true */
-                    //   
-                    //   nodeClassName.indexOf(' ' + className2 + ' ') > -1) 
-                    //   /* ' foo bar baz '.indexOf(' fo ') -> false */
-                    //   
+                    // пробелами, что позволяет отсеять частичные совпадения строк при поиске вхождения.
                     if(nodeClassName.indexOf(' ' + className + ' ') > -1) {
                         // Если мы попали сюда, значит на DOM-элементе определён искомый блок.
                         var j = 0;
